@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience & Credentials | Sr. DevSecOps & Full-Stack Engineer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&family=Playfair+Display:italic,wght@700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        zinc: { 950: '#09090b' },
+                        cyan: { 400: '#22d3ee', 500: '#06b6d4' },
+                        emerald: { 400: '#34d399', 500: '#10b881' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .grid-bg {
+            background-image: linear-gradient(to right, rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #09090b;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease;
+        }
+        .timeline-line {
+            background: linear-gradient(to bottom, transparent, #18181b, #06b6d4, #10b881, #18181b, transparent);
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 selection:bg-cyan-500/30 font-sans antialiased overflow-x-hidden">
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="mb-4 relative">
+            <div class="w-16 h-16 border-4 border-cyan-500/20 border-t-cyan-500 rounded-full animate-spin"></div>
+        </div>
+        <div id="loader-status" class="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">Parsing Experience Data...</div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 border-b border-zinc-800/50 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="window.location.href='portfolio.html'">
+                <div class="w-8 h-8 rounded bg-gradient-to-br from-cyan-500 to-emerald-500 flex items-center justify-center font-bold text-zinc-950 text-xs transition-transform hover:rotate-12">
+                    PR
+                </div>
+                <span class="font-mono text-sm tracking-tighter text-zinc-100 hidden sm:block">
+                    back_to_core()
+                </span>
+            </div>
+            
+            <div class="flex items-center gap-8 text-sm text-zinc-400">
+                <a href="projects.html" class="hover:text-cyan-400 transition-colors">Mission Logs</a>
+                <div class="text-[10px] font-mono text-cyan-500 uppercase tracking-widest px-3 py-1 rounded-md border border-cyan-500/20 bg-cyan-500/5">
+                    Mode: Experience_Deep_Dive
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6 relative">
+        <div class="absolute inset-0 z-0 opacity-20 grid-bg pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto">
+            <!-- Header -->
+            <header class="mb-20 reveal">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 italic font-serif tracking-tight">Technical Trajectory</h1>
+                <p class="text-zinc-400 max-w-3xl text-lg leading-relaxed">
+                    A timeline of system hardening, full-stack orchestration, and infrastructure evolution. 2.6+ years of pushing code to production-grade security standards.
+                </p>
+            </header>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                <!-- Left: Timeline -->
+                <div class="lg:col-span-8 space-y-12 relative">
+                    <div class="absolute left-0 top-0 bottom-0 w-[1px] timeline-line ml-4 lg:ml-6"></div>
+                    
+                    <!-- Exp Item 1 -->
+                    <div class="relative pl-12 lg:pl-20 reveal">
+                        <div class="absolute left-0 top-1.5 w-8 h-8 lg:w-12 lg:h-12 rounded-xl bg-zinc-950 border border-cyan-500/50 flex items-center justify-center z-10">
+                            <i data-lucide="shield-check" class="w-4 h-4 lg:w-5 lg:h-5 text-cyan-400"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-mono text-cyan-500 uppercase tracking-widest block mb-2">Jan 2024 — Present</span>
+                            <h3 class="text-2xl font-bold text-zinc-100">Senior DevSecOps Engineer</h3>
+                            <p class="text-emerald-500 font-mono text-xs mb-4 underline underline-offset-4">Enterprise Infrastructure Corp</p>
+                            <ul class="space-y-3 text-zinc-400 text-sm leading-relaxed max-w-2xl">
+                                <li class="flex gap-3"><span class="text-cyan-500 mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-cyan-500"></span> Leading security integration for 50+ microservices using SonarQube and Fortify.</li>
+                                <li class="flex gap-3"><span class="text-cyan-500 mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-cyan-500"></span> Reduced pipeline failure rates by 35% through Ansible-driven infrastructure-as-code.</li>
+                                <li class="flex gap-3"><span class="text-cyan-500 mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-cyan-500"></span> Architecting Kubernetes network policies for zero-trust environments.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Exp Item 2 -->
+                    <div class="relative pl-12 lg:pl-20 reveal" style="transition-delay: 100ms;">
+                        <div class="absolute left-0 top-1.5 w-8 h-8 lg:w-12 lg:h-12 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center z-10">
+                            <i data-lucide="code-2" class="w-4 h-4 lg:w-5 lg:h-5 text-zinc-400"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block mb-2">June 2022 — Dec 2023</span>
+                            <h3 class="text-2xl font-bold text-zinc-100">Full-Stack Systems Developer</h3>
+                            <p class="text-zinc-500 font-mono text-xs mb-4">TechNexus Solutions</p>
+                            <ul class="space-y-3 text-zinc-400 text-sm leading-relaxed max-w-2xl">
+                                <li class="flex gap-3"><span class="text-zinc-700 mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-zinc-700"></span> Developed high-concurrency Django portals for internal data visualization.</li>
+                                <li class="flex gap-3"><span class="text-zinc-700 mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-zinc-700"></span> Built and managed Redis caching layers, improving API response times by 200ms.</li>
+                                <li class="flex gap-3"><span class="text-zinc-700 mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-zinc-700"></span> Managed shell-based log shipping agents for legacy ELK stack migration.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="relative pl-12 lg:pl-20 reveal" style="transition-delay: 200ms;">
+                        <div class="absolute left-0 top-1.5 w-8 h-8 lg:w-12 lg:h-12 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center z-10">
+                            <i data-lucide="graduation-cap" class="w-4 h-4 lg:w-5 lg:h-5 text-zinc-400"></i>
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block mb-2">Graduated 2022</span>
+                            <h3 class="text-xl font-bold text-zinc-100">B.S. in Computer Science</h3>
+                            <p class="text-zinc-500 font-mono text-xs">University of Technical Engineering</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Stats & Skills Matrix -->
+                <div class="lg:col-span-4 space-y-8">
+                    <!-- Skills Matrix -->
+                    <div class="p-8 rounded-3xl glass border border-zinc-800 reveal" style="transition-delay: 300ms;">
+                        <h4 class="text-sm font-bold text-zinc-100 uppercase tracking-widest mb-6 border-b border-zinc-800 pb-4">Skills Matrix</h4>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between text-[10px] font-mono mb-2 uppercase tracking-tighter">
+                                    <span class="text-zinc-400">Infrastructure (IaC)</span>
+                                    <span class="text-cyan-400">95%</span>
+                                </div>
+                                <div class="h-1 w-full bg-zinc-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-cyan-500 w-[95%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[10px] font-mono mb-2 uppercase tracking-tighter">
+                                    <span class="text-zinc-400">Security / DevSecOps</span>
+                                    <span class="text-emerald-400">90%</span>
+                                </div>
+                                <div class="h-1 w-full bg-zinc-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-emerald-500 w-[90%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[10px] font-mono mb-2 uppercase tracking-tighter">
+                                    <span class="text-zinc-400">Full-Stack Development</span>
+                                    <span class="text-zinc-500">85%</span>
+                                </div>
+                                <div class="h-1 w-full bg-zinc-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-zinc-600 w-[85%]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="p-8 rounded-3xl glass border border-zinc-800 reveal" style="transition-delay: 400ms;">
+                        <h4 class="text-sm font-bold text-zinc-100 uppercase tracking-widest mb-6 border-b border-zinc-800 pb-4">Credentials</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4 group">
+                                <div class="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-cyan-500 group-hover:border-cyan-500 transition-colors">
+                                    <i data-lucide="award" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-zinc-100">Certified Kubernetes Administrator</p>
+                                    <p class="text-[10px] font-mono text-zinc-600 uppercase">Cloud Native Foundation</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 group">
+                                <div class="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-emerald-500 group-hover:border-emerald-500 transition-colors">
+                                    <i data-lucide="award" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-zinc-100">CompTIA Security+</p>
+                                    <p class="text-[10px] font-mono text-zinc-600 uppercase">CompTIA Corp</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 group">
+                                <div class="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 group-hover:border-zinc-300 transition-colors">
+                                    <i data-lucide="award" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-zinc-100">AWS Solutions Architect</p>
+                                    <p class="text-[10px] font-mono text-zinc-600 uppercase">Amazon Web Services</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-16 px-6 border-t border-zinc-900 bg-zinc-950 text-center">
+        <p class="text-zinc-600 text-[10px] font-mono uppercase tracking-[0.5em]">
+            Credential Registry Synced &copy; <span id="year"></span>
+        </p>
+    </footer>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        async function handleLoading() {
+            const loader = document.getElementById('loader');
+            await new Promise(r => setTimeout(r, 1000));
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+                startAnims();
+            }, 500);
+        }
+
+        function checkReveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const revealTop = el.getBoundingClientRect().top;
+                if (revealTop < windowHeight - 50) {
+                    el.classList.add('active');
+                }
+            });
+        }
+
+        function startAnims() {
+            checkReveal();
+        }
+
+        window.addEventListener('load', () => {
+            lucide.createIcons();
+            document.getElementById('year').textContent = new Date().getFullYear();
+            handleLoading();
+        });
+
+        window.addEventListener('scroll', checkReveal);
+    </script>
+</body>
+</html>

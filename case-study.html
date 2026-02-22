@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Automated Security Pipeline | Sr. DevSecOps Engineer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&family=Playfair+Display:italic,wght@700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        zinc: { 950: '#09090b' },
+                        cyan: { 400: '#22d3ee', 500: '#06b6d4' },
+                        emerald: { 400: '#34d399', 500: '#10b881' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .grid-bg {
+            background-image: linear-gradient(to right, rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #09090b;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease;
+        }
+        .code-block {
+            background: #0d0d0f;
+            border: 1px solid #1e1e24;
+            border-left: 4px solid #06b6d4;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 selection:bg-cyan-500/30 font-sans antialiased overflow-x-hidden">
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="mb-4 relative">
+            <div class="w-16 h-16 border-4 border-cyan-500/20 border-t-cyan-500 rounded-full animate-spin"></div>
+        </div>
+        <div id="loader-status" class="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">Deciphering Technical Assets...</div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 border-b border-zinc-800/50 bg-zinc-950/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="window.location.href='portfolio.html'">
+                <div class="w-8 h-8 rounded bg-gradient-to-br from-cyan-500 to-emerald-500 flex items-center justify-center font-bold text-zinc-950 text-xs">
+                    PR
+                </div>
+                <span class="font-mono text-sm tracking-tighter text-zinc-100 hidden sm:block">
+                    back_to_logs()
+                </span>
+            </div>
+            
+            <div class="flex items-center gap-6">
+                <a href="projects.html" class="text-xs font-mono text-zinc-500 hover:text-zinc-100 transition-colors">/archive</a>
+                <div class="text-[10px] font-mono text-cyan-500 uppercase tracking-widest px-3 py-1 rounded-md border border-cyan-500/20 bg-cyan-500/5">
+                    ID: CS_LOG_001
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 relative">
+        <div class="absolute inset-0 z-0 opacity-20 grid-bg pointer-events-none"></div>
+
+        <!-- Case Study Header -->
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <header class="mb-16 reveal">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="px-3 py-1 bg-zinc-900 border border-zinc-800 text-cyan-400 text-[10px] font-mono rounded">PRODUCTION_DEPLOYED</span>
+                    <span class="text-zinc-600 text-[10px] font-mono">Q3 2023</span>
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold mb-8 italic font-serif leading-tight">Automated Security Pipeline</h1>
+                <p class="text-xl text-zinc-400 max-w-3xl leading-relaxed">
+                    A zero-trust CI/CD orchestration architecture designed to automate static analysis, dependency scanning, and compliance gates for financial-grade applications.
+                </p>
+            </header>
+
+            <!-- Metadata Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 py-10 border-y border-zinc-900 mb-20 reveal">
+                <div>
+                    <h4 class="text-xs font-mono text-zinc-600 uppercase mb-2">Role</h4>
+                    <p class="text-sm font-semibold text-zinc-100">Sr. DevSecOps Architect</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-mono text-zinc-600 uppercase mb-2">Platform</h4>
+                    <p class="text-sm font-semibold text-zinc-100">Private Gov Cloud</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-mono text-zinc-600 uppercase mb-2">Impact</h4>
+                    <p class="text-sm font-semibold text-emerald-500">-40% Vulnerabilities</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-mono text-zinc-600 uppercase mb-2">Duration</h4>
+                    <p class="text-sm font-semibold text-zinc-100">6 Month Sprint</p>
+                </div>
+            </div>
+
+            <!-- Content Sections -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20">
+                
+                <!-- Main Narrative -->
+                <div class="lg:col-span-8 space-y-20">
+                    
+                    <!-- Problem -->
+                    <section class="reveal">
+                        <h2 class="text-2xl font-bold text-zinc-100 mb-6 flex items-center gap-3">
+                            <i data-lucide="alert-circle" class="text-red-500 w-5 h-5"></i> 
+                            The Infrastructure Gap
+                        </h2>
+                        <div class="prose prose-invert prose-zinc max-w-none text-zinc-400 leading-relaxed">
+                            <p>Before intervention, the deployment cycle relied on manual security reviews conducted after UAT. This created a significant bottleneck, often delaying production releases by 2-3 weeks while developers remediated vulnerabilities discovered too late in the SDLC.</p>
+                            <p class="mt-4">Key challenges included high dependency on third-party libraries without version control and lack of visibility into "Shadow Code" introduced by legacy components.</p>
+                        </div>
+                    </section>
+
+                    <!-- Solution -->
+                    <section class="reveal">
+                        <h2 class="text-2xl font-bold text-zinc-100 mb-6 flex items-center gap-3">
+                            <i data-lucide="check-circle" class="text-emerald-500 w-5 h-5"></i> 
+                            The Architecture
+                        </h2>
+                        <div class="prose prose-invert prose-zinc max-w-none text-zinc-400 leading-relaxed space-y-6">
+                            <p>We architected a unified pipeline using <strong>Jenkins Shared Libraries</strong> to modularize security checks. The core workflow involved:</p>
+                            <ul class="list-none space-y-4">
+                                <li class="flex gap-4">
+                                    <span class="text-cyan-500 font-mono text-xs mt-1">01.</span>
+                                    <span><strong>Fortify SCA:</strong> Injected at the build stage for static code analysis, blocking PRs that fail specific security thresholds.</span>
+                                </li>
+                                <li class="flex gap-4">
+                                    <span class="text-cyan-500 font-mono text-xs mt-1">02.</span>
+                                    <span><strong>BlackDuck Hub:</strong> Automated OSS scanning to detect license non-compliance and critical CVEs.</span>
+                                </li>
+                                <li class="flex gap-4">
+                                    <span class="text-cyan-500 font-mono text-xs mt-1">03.</span>
+                                    <span><strong>SonarQube:</strong> Quality gates for maintainability and code coverage.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Technical Detail (Code Block) -->
+                    <section class="reveal">
+                        <h2 class="text-2xl font-bold text-zinc-100 mb-6 font-mono text-sm uppercase tracking-widest text-zinc-500">Code Snippet: Ansible Compliance Check</h2>
+                        <div class="code-block rounded-xl p-6 overflow-x-auto">
+                            <pre class="font-mono text-xs text-zinc-300"><code>- name: Verify CIS Benchmarks on Podman Nodes
+  hosts: container_cluster
+  tasks:
+    - name: Ensure secure ownership of /etc/containers/registries.conf
+      file:
+        path: /etc/containers/registries.conf
+        owner: root
+        group: root
+        mode: '0644'
+    
+    - name: Audit open container ports
+      shell: "podman ps --format '{{.Ports}}'"
+      register: open_ports
+      failed_when: "'8080' in open_ports.stdout"</code></pre>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar / Tools Used -->
+                <div class="lg:col-span-4 space-y-12">
+                    <div class="p-8 rounded-3xl glass border border-zinc-800 reveal">
+                        <h4 class="text-sm font-bold text-zinc-100 uppercase tracking-widest mb-6 border-b border-zinc-800 pb-4">Stack Deployed</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-zinc-950 border border-zinc-800 rounded-lg text-xs font-mono text-zinc-400">Jenkins</span>
+                            <span class="px-3 py-1.5 bg-zinc-950 border border-zinc-800 rounded-lg text-xs font-mono text-zinc-400">Fortify SCA</span>
+                            <span class="px-3 py-1.5 bg-zinc-950 border border-zinc-800 rounded-lg text-xs font-mono text-zinc-400">Ansible</span>
+                            <span class="px-3 py-1.5 bg-zinc-950 border border-zinc-800 rounded-lg text-xs font-mono text-zinc-400">Podman</span>
+                            <span class="px-3 py-1.5 bg-zinc-950 border border-zinc-800 rounded-lg text-xs font-mono text-zinc-400">Groovy</span>
+                            <span class="px-3 py-1.5 bg-zinc-950 border border-zinc-800 rounded-lg text-xs font-mono text-zinc-400">SonarQube</span>
+                        </div>
+                    </div>
+
+                    <div class="p-8 rounded-3xl glass border border-zinc-800 reveal" style="transition-delay: 100ms;">
+                        <h4 class="text-sm font-bold text-zinc-100 uppercase tracking-widest mb-6 border-b border-zinc-800 pb-4">Key KPIs</h4>
+                        <div class="space-y-6">
+                            <div>
+                                <p class="text-[10px] font-mono text-zinc-500 uppercase mb-1">Time to Deploy</p>
+                                <p class="text-2xl font-bold text-cyan-400">-65% <span class="text-xs font-normal text-zinc-600">Avg. reduction</span></p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-mono text-zinc-500 uppercase mb-1">Security Score</p>
+                                <p class="text-2xl font-bold text-emerald-500">A+ <span class="text-xs font-normal text-zinc-600">Veracode rating</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <section class="py-24 px-6 border-t border-zinc-900 bg-zinc-950/50 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+            <div class="text-center md:text-left">
+                <span class="text-xs font-mono text-zinc-600 uppercase tracking-widest mb-2 block">Up Next</span>
+                <h4 class="text-3xl font-bold text-zinc-100 italic font-serif">Vector DB Automation</h4>
+            </div>
+            <button class="px-10 py-4 rounded-full bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-bold transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(6,182,212,0.3)] group flex items-center gap-3">
+                LOAD NEXT MISSION
+                <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+            </button>
+        </div>
+    </section>
+
+    <footer class="py-16 px-6 border-t border-zinc-900 bg-zinc-950 text-center">
+        <p class="text-zinc-600 text-[10px] font-mono uppercase tracking-[0.5em]">
+            Deployment Analysis Complete &copy; <span id="year"></span>
+        </p>
+    </footer>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        async function handleLoading() {
+            const loader = document.getElementById('loader');
+            await new Promise(r => setTimeout(r, 1000));
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+                startAnims();
+            }, 500);
+        }
+
+        function checkReveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const revealTop = el.getBoundingClientRect().top;
+                if (revealTop < windowHeight - 50) {
+                    el.classList.add('active');
+                }
+            });
+        }
+
+        function startAnims() {
+            checkReveal();
+        }
+
+        window.addEventListener('load', () => {
+            lucide.createIcons();
+            document.getElementById('year').textContent = new Date().getFullYear();
+            handleLoading();
+        });
+
+        window.addEventListener('scroll', checkReveal);
+    </script>
+</body>
+</html>
