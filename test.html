@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Portfolio Image</title>
+    <style>
+        /* Basic page reset for presentation */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: #f4f7f6; /* A clean, professional light gray */
+            font-family: Arial, sans-serif;
+        }
+
+        /* 1. The container that handles the perspective */
+        .tilt-container {
+            width: 300px; /* Adjust based on preferred image size */
+            height: 300px;
+            /* Perspective gives the 3D effect depth */
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        /* 2. The inner element that actually rotates */
+        .tilt-inner {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.1s ease-out; /* Smooth transitions */
+            transform-style: preserve-3d; /* Required for nested 3D elements */
+            
+            /* Professional styling for the card */
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            overflow: hidden; /* Keeps the image inside the border radius */
+            border: 4px solid white; /* Adds a nice "photo card" frame */
+        }
+
+        /* 3. The static image itself */
+        .tilt-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image fills the square without stretching */
+            display: block;
+        }
+
+        /* Basic container for text/context */
+        .portfolio-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-section">
+        <div class="tilt-container" id="tiltCard">
+            <div class="tilt-inner">
+                <img src="profile_photo.jpg" alt="Professional Portrait">
+            </div>
+        </div>
+        
+        <p><em>(Hover your mouse over the image to see the 3D effect)</em></p>
+    </div>
+
+    <script>
+        const card = document.getElementById('tiltCard');
+        const inner = card.querySelector('.tilt-inner');
+
+        card.addEventListener('mousemove', (e) => {
+            // Get card dimensions
+            const { width, height, left, top } = card.getBoundingClientRect();
+            
+            // Calculate mouse position relative to center of the card (-0.5 to 0.5)
+            const xAxis = (e.clientX - left) / width - 0.5;
+            const yAxis = (e.clientY - top) / height - 0.5;
+            
+            // Max rotation angles (adjust for intensity)
+            const maxRotation = 15; 
+
+            // Apply the 3D rotation based on mouse position
+            // We rotate around the Y axis for horizontal tilt, and X axis for vertical tilt
+            // Note: Vertical tilt (X-axis) needs to be inverted for intuitive movement
+            inner.style.transform = `rotateY(${xAxis * maxRotation}deg) rotateX(${-yAxis * maxRotation}deg)`;
+        });
+
+        // Reset the position smoothly when mouse leaves
+        card.addEventListener('mouseleave', () => {
+            inner.style.transition = "transform 0.5s ease"; // Smooth snap back
+            inner.style.transform = `rotateY(0deg) rotateX(0deg)`;
+            
+            // Short timeout to remove the transition, returning to the fast (0.1s) one for movement
+            setTimeout(()=> {
+                inner.style.transition = "transform 0.1s ease-out";
+            }, 500);
+        });
+    </script>
+
+</body>
+</html>
